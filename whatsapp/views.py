@@ -16,8 +16,8 @@ def webhook(request):
     print(f'{user} says {message}')
 
     response = MessagingResponse()
-    response.message('Thank for your message! A member of our team will be '
-                     'in touch with you soon.')
+    response.message('What do you think of my Whatsapp Questions application?')
+    Log.objects.create(phone_number=user, message=message)
  
     return HttpResponse(str(response))
 
