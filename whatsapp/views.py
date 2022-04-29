@@ -14,10 +14,11 @@ def webhook(request):
     message = request.POST.get('Body')
    
     print(f'{user} says {message}')
+    cleaned_username=user.replace('whatsapp:','')
 
     response = MessagingResponse()
     response.message('What do you think of my Whatsapp Questions application?')
-    Log.objects.create(phone_number=user, message=message)
+    Log.objects.create(phone_number=cleaned_username, message=message)
  
     return HttpResponse(str(response))
 
