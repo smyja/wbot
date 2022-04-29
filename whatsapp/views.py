@@ -12,13 +12,14 @@ def webhook(request):
     
     user = request.POST.get('From')
     message = request.POST.get('Body')
+   
     print(f'{user} says {message}')
 
     response = MessagingResponse()
     response.message('Thank for your message! A member of our team will be '
                      'in touch with you soon.')
  
-    return HttpResponse()
+    return HttpResponse(str(response))
 
 def webhook_logs(request):
   log_object = Log.objects.all()
