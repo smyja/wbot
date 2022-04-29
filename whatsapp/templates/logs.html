@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>Webhook Logs</title>
+</head>
+
+<body>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'webhook' %}">Home</a></li>
+            <li class="breadcrumb-item">Webhook</li>
+            <li class="breadcrumb-item active" aria-current="page">Logs</li>
+        </ol>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-12">
+                <h3>Webhook Logs</h3>
+                <div style="display: block; max-height: 450px; overflow-y: auto; -ms-overflow-style: -ms-autohiding-scrollbar;">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Message</th>
+                                <th scope="col">Phone number</th>
+                                <th scope="col">Date</th>
+                        
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in data %}
+                            <tr>
+                                <th>{{ item.id }}</th>
+                                <td>{{ item.message }}</td>
+                                <td>{{ item.phone_number}}</td>
+                                <td>{{ item.created_at }}</td>
+                            </tr>
+                            {% endfor %}
+                            <tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
